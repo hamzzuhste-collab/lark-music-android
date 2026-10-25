@@ -1,0 +1,39 @@
+{
+  "target_name": "Lark Player Android",
+  "expected_package_candidates": [
+    "com.gemini.music.player",
+    "com.larkplayer.music",
+    "com.music.player.mp3player.white"
+  ],
+  "inspection_milestones": [
+    {
+      "milestone": "Package Ingestion",
+      "tool": "inspect_android_package",
+      "verified_fields": ["package_name", "version_code", "min_sdk", "target_sdk", "permissions", "services"]
+    },
+    {
+      "milestone": "Media Service Inspection",
+      "tool": "search_android_classes",
+      "query": "PlayerService",
+      "focus": "MediaSession integration, audio focus, notification callbacks"
+    },
+    {
+      "milestone": "Lyrics Engine Extraction",
+      "tool": "search_android_classes",
+      "query": "LrcParser",
+      "focus": "LRC time tag regex matching, millisecond alignment, offset tags"
+    },
+    {
+      "milestone": "Floating Window Inspection",
+      "tool": "search_android_classes",
+      "query": "FloatLyric",
+      "focus": "WindowManager TYPE_APPLICATION_OVERLAY parameters, touch dragging dispatch"
+    },
+    {
+      "milestone": "Equalizer AudioFX Inspection",
+      "tool": "search_android_classes",
+      "query": "Equalizer",
+      "focus": "Audio session binding, BassBoost and Virtualizer ranges"
+    }
+  ]
+}
