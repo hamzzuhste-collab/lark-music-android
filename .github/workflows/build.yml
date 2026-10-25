@@ -3,7 +3,7 @@ name: Build Lark Music APK
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch:        # lets you trigger it manually from GitHub website
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,6 +22,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-34 build-tools;34.0.0'
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
