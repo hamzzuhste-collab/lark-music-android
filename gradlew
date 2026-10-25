@@ -10,7 +10,7 @@ APP_HOME="`pwd -P`"
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
 # Java opts
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
 
 # Determine Java command
 if [ -n "$JAVA_HOME" ] ; then
